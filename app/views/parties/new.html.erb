@@ -1,0 +1,38 @@
+<h2>Create Party</h2>
+
+<%= form_for :parties,url: parties_path, html: { multipart: true } do |f| %>
+
+  <div class="field">
+    <%= f.label :title,"Party Title" %><br />
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+
+<div class="field">
+  <%= f.label :type_of_party,"Type"%><br />
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+
+
+<div class="field">
+    <%= f.label :no_of_person,"Number of Persons" %><br />
+    <%= f.text_field :no_of_person, autofocus: true %>
+  </div>
+
+<div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
+<div class="field">
+    <%= f.label :venue,"Venue" %><br />
+    <%= f.text_field :venue, autofocus: true %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Create" %>
+  </div>
+<% end %>
+
+
+

@@ -1,0 +1,68 @@
+<h1>create reviewer</h1>
+<h2>Sign up</h2>
+<% binding.pry %>
+<%= form_for :users ,url: user_registration_path do |f| %>
+ 
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @validatable %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+<div class="field">
+    <%= f.label :name,"Name" %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+
+<div class="field">
+    <%= f.label :phn_no,"Phone Number" %><br />
+    <%= f.text_field :phone_no, autofocus: true %>
+  </div>
+
+
+
+<div class="field">
+    <%= f.label :address,"Address" %><br />
+    <%= f.text_field :address, autofocus: true %>
+  </div>
+
+<div class="field">
+    <%= f.label :state,"State" %><br />
+    <%= f.text_field :state, autofocus: true %>
+  </div>
+
+<div class="field">
+    <%= f.label :city,"City" %><br />
+    <%= f.text_field :city, autofocus: true %>
+  </div>
+ 
+ <div class="field">
+    <%= f.label :pincode,"Pincode" %><br />
+    <%= f.text_field :pincode, autofocus: true %>
+  </div>
+
+ <div class="field">
+    <%= f.label :role,"Role" %><br />
+    <%= f.text_field :role, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+

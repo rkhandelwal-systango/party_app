@@ -1,0 +1,22 @@
+<h1> USERS </h1>
+<p> <b> Admin </b></p>
+<table border="1" style="width:100%">
+<tr>
+   <th>Firstname</th>
+   <th>Lastname</th>
+   <th>Email</th>
+   <th>delete</th>
+   </tr>
+   </table>
+<% @users.each do |user| %>
+    <table border="1" style="width:100%">
+   
+   <tr>
+       <td> <%= user.name %> </td>
+        <td><%= user.city %></td>
+        <td><%= user.email %></td>
+    </tr>
+    </table>
+
+<% end %>
+<%= link_to 'SIGN OUT', logout_path %> 

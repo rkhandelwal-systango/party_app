@@ -1,0 +1,22 @@
+<p>My parties</p>
+<table border="1" style="width:100%">
+<tr>
+   <td>Party title</td>
+   <td>venue</td>
+   </tr>
+</table>
+
+<% @parties.each do |party| %>
+
+<table border="1" style="width:100%">
+<tr>
+    <td><b><%= party.title %></b></td>
+    <td><%= party.venue %></td>
+        
+</tr>
+</table>
+<br><br>
+
+<% end %>
+
+
