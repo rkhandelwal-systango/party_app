@@ -1,0 +1,25 @@
+<p><b>My Parties<b></p>
+<table border="1" style="width:100%">
+  <tr>
+    <td>Photo</td>
+    <td>Party title</td>
+    <td>venue</td>
+    <td>Status</td>
+  </tr>
+</table>
+
+<% @parties.each do |party| %>
+<% if current_user.id == party.user_id %>
+<table border="1" style="width:100%">
+  <tr>
+    <td><%= image_tag party.avatar.url %><td>
+    <td><b><%= party.title %></b></td>
+    <td><%= party.venue %></td>
+    <td><%= party.status %></td>
+  </tr>
+</table>
+<% end %>
+<br><br>
+
+<% end %>
+<%= button_to "Sign Out", destroy_user_session_path(@user), method: :delete %>

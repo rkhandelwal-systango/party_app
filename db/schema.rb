@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627082744) do
+ActiveRecord::Schema.define(version: 20160628062001) do
 
   create_table "parties", force: :cascade do |t|
     t.datetime "created_at",          null: false
@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20160627082744) do
     t.date     "party_date"
     t.time     "time"
     t.string   "venue"
-    t.text     "user_id"
     t.string   "status"
     t.string   "comment"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

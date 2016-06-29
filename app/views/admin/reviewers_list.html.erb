@@ -1,25 +1,24 @@
-<h1> USERS </h1>
-<p> <b> Admin </b></p>
+<h1> Reviewers List</h1>
 <table border="1" style="width:100%">
 <tr>
    <th>Name</th>
    <th>City</th>
    <th>Email</th>
-     <th>Role</th>
+   <th>Role</th>
    </tr>
    </table>
 <% @users.each do |user| %>
     <table border="1" style="width:100%">
-   
+ <% if user.role == 'reviewer' %>
    <tr>
        <td> <%= user.name %> </td>
         <td><%= user.city %></td>
         <td><%= user.email %></td>
         <td><%= user.role %></td>
-         <td><%= link_to 'Delete', admin_path(user), :method => :delete %></td>
+        <td><%= link_to 'Delete',reviewer_path(user), :method => :delete %></td>
     </tr>
     </table>
-
+<% end %>
 <% end %>
 <%= button_to "Sign Out", destroy_user_session_path(@user), method: :delete %>
  

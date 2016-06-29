@@ -1,13 +1,12 @@
-<h>hello!</h><br>
-<%= link_to 'Edit Profile', edit_user_registration_path(@user) %><br>
-<%= link_to 'My Parties', party_path(@user) %><br>
-<%= link_to 'Create Party', new_party_path %><br>
-All Parties
+<h>Hello<h>
+<p>I am Reviewer</p>
+<p><b>All parties</b></p>
 <table border="1" style="width:100%">
 <tr>
    <td>Party title</td>
    <td>venue</td>
- 
+    <td>Status</td>
+
    </tr>
 </table>
 
@@ -15,12 +14,14 @@ All Parties
 
 <table border="1" style="width:100%">
 <tr>
+<td><%= image_tag party.avatar.url %><td>
     <td><b><%= party.title %></b></td>
     <td><%= party.venue %></td>
- 
+    
+       <td> <%= button_to 'accept'%>/<%= button_to 'decline' %></td>
 </tr>
 </table>
 <br><br>
 
-<% end %><br>
+<% end %>
 <%= button_to "Sign Out", destroy_user_session_path(@user), method: :delete %>

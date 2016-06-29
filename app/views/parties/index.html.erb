@@ -1,8 +1,16 @@
-<p>My parties</p>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+</head>
+
+<p><b>All parties</b></p>
 <table border="1" style="width:100%">
 <tr>
+<td>Photo</td>
    <td>Party title</td>
    <td>venue</td>
+    <td>Status</td>
+<td>Name</td>
    </tr>
 </table>
 
@@ -10,13 +18,16 @@
 
 <table border="1" style="width:100%">
 <tr>
+<td><%= image_tag party.avatar.url %><td>
     <td><b><%= party.title %></b></td>
     <td><%= party.venue %></td>
-        
+    
+    <td><button class="but">Accept</button>
+   
 </tr>
 </table>
 <br><br>
 
 <% end %>
-
-
+<%= button_to "Sign Out", destroy_user_session_path(@user), method: :delete %>
+</html>

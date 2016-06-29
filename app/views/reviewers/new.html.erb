@@ -1,7 +1,5 @@
-<h1>create reviewer</h1>
-<h2>Sign up</h2>
-<% binding.pry %>
-<%= form_for :users ,url: user_registration_path do |f| %>
+<h>Create reviewer</h>
+<%= form_for @user ,url: reviewers_path do |f| %>
  
 
   <div class="field">
@@ -56,13 +54,11 @@
   </div>
 
  <div class="field">
-    <%= f.label :role,"Role" %><br />
-    <%= f.text_field :role, autofocus: true %>
+   <%= f.hidden_field :role, :value => 'reviewer'%>
   </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
-
+<%= button_to "Sign Out", destroy_user_session_path(@user), method: :delete %>

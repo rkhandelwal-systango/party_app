@@ -9,11 +9,15 @@ Rails.application.routes.draw do
   end
   resources :admin 
   resources :reviewers
-  get 'users_list', to: 'admin#users_list'
-  get 'reviewer_option', to: 'admin#reviewer_option' 
+  get 'admin/users_list', to: 'admin#users_list'
+  get 'admin/reviewer_option', to: 'admin#reviewer_option' 
   resources :parties
   get 'my_parties', to: 'parties#my_parties'
   get 'create_reviewer', to: 'admin#create_reviewer'
+  get 'reviewers_list', to: 'admin#reviewers_list'
+  #put 'update_status', to: 'users/registrations#update_status'
+  put 'accept_party', to: 'admin#accept_party'
+  get 'destroy_session', to: 'admin#destroy_session'
    #post 'login', to: 'users#login'
   #devise_for :users, controllers: {registrations: 'users/registrations'}
   # The priority is based upon order of creation: first created -> highest priority.

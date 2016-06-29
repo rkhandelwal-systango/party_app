@@ -24,10 +24,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update
-  @user = User.where(email: params[:user][:email], password: params[:user][:password]).first
+   @user = current_user.id
   #@user = User.find(session[:session_id])
   if @user.present?
-      @user = User.find(params[:id])
+      @user = current_user
       if @user.update(user_params)
       redirect_to index_path
       else
@@ -38,9 +38,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 end
 
-  def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation,:name,:phone_no,:address,:state,:city ,:pincode,:avatar )
-  end
+def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_path
+end
+ 
+
+def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation,:name,:phone_no,:address,:state,:city ,:pincode,:avatar,:user_id )
+end
   # GET /resource/edit
   # def edit
   #   super
