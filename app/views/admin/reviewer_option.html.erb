@@ -1,5 +1,28 @@
-<h1>I am Reviewer</h1>
+<h1> Reviewers List</h1>
+<table border="1" style="width:100%">
+<tr>
+   <th>Name</th>
+   <th>City</th>
+   <th>Email</th>
+   <th>Role</th>
+</tr>
+</table>
+<% @users.each do |user| %>
+<table border="1" style="width:100%">
+    <% if user.role == 'reviewer' %>
+    <tr>
+        <td><%= user.name %> </td>
+        <td><%= user.city %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td><%= link_to 'Delete',reviewer_path(user), :method => :delete %></td>
+    </tr>
+</table>
+    <% end %>
+<% end %>
+
 <%= link_to "Create", new_reviewer_path %>
-<%= link_to "Update" %>
-<%= link_to "Delete", reviewers_list_path%>
+
 <%= button_to "Sign Out", destroy_user_session_path(@user), method: :delete %>
+
+ 

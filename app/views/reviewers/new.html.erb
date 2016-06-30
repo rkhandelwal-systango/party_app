@@ -1,42 +1,38 @@
 <h>Create reviewer</h>
 <%= form_for @user ,url: reviewers_path do |f| %>
  
-
-  <div class="field">
+<div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= f.label :password %>
     <% if @validatable %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+</div>
 
 <div class="field">
     <%= f.label :name,"Name" %><br />
     <%= f.text_field :name, autofocus: true %>
-  </div>
-
+</div>
 
 <div class="field">
     <%= f.label :phn_no,"Phone Number" %><br />
     <%= f.text_field :phone_no, autofocus: true %>
-  </div>
-
-
+</div>
 
 <div class="field">
     <%= f.label :address,"Address" %><br />
     <%= f.text_field :address, autofocus: true %>
-  </div>
+</div>
 
 <div class="field">
     <%= f.label :state,"State" %><br />
@@ -46,19 +42,20 @@
 <div class="field">
     <%= f.label :city,"City" %><br />
     <%= f.text_field :city, autofocus: true %>
-  </div>
+</div>
  
- <div class="field">
+<div class="field">
     <%= f.label :pincode,"Pincode" %><br />
     <%= f.text_field :pincode, autofocus: true %>
-  </div>
+</div>
 
- <div class="field">
+<div class="field">
    <%= f.hidden_field :role, :value => 'reviewer'%>
-  </div>
+</div>
 
-  <div class="actions">
+<div class="actions">
     <%= f.submit "Sign up" %>
-  </div>
+</div>
 <% end %>
+
 <%= button_to "Sign Out", destroy_user_session_path(@user), method: :delete %>

@@ -1,25 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Party Application</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><%= link_to 'Home', admin_index_path %></li>
+      <li><%= link_to 'Reviewers', admin_reviewers_list_path %></li>
+      <li><%= link_to "Parties", parties_path%></li>
+    </ul>
+  </div>
+</nav>
+  
+
+
 <h1> USERS </h1>
 <p> <b> Admin </b></p>
-<table border="1" style="width:100%">
-<tr>
-   <th>Name</th>
-   <th>City</th>
-   <th>Email</th>
-     <th>Role</th>
-   </tr>
-   </table>
-<% @users.each do |user| %>
-    <table border="1" style="width:100%">
-   
-   <tr>
-       <td> <%= user.name %> </td>
-        <td><%= user.city %></td>
-        <td><%= user.email %></td>
-        <td><%= user.role %></td>
-         <td><%= link_to 'Delete', admin_path(user), :method => :delete %></td>
-    </tr>
-    </table>
 
+<table border="1" style="width:100%">
+   <tr>
+      <td>Name</td>
+      <td>City</td>
+      <td>Email</td>
+      <td>Role</td>
+      <td>Action</td>
+   </tr>
+
+<% @users.each do |user| %>
+   <tr>
+      <td><%= user.name %></td>
+      <td><%= user.city %></td>
+      <td><%= user.email %></td>
+      <td><%= user.role %></td>
+      <td><%= link_to 'Delete', admin_path(user), :method => :delete %></td>
+    </tr>
 <% end %>
+
+</table>
+
+
 <%= button_to "Sign Out", destroy_user_session_path(@user), method: :delete %>
- 
+</body>
+</html>

@@ -1,33 +1,52 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <title>Bootstrap Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Party Application</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><%= link_to 'Home', admin_index_path %></li>
+          <li><%= link_to 'Users', admin_users_list_path %></li>
+      <li><%= link_to 'Reviewers', admin_reviewers_list_path %></li>
+      <li><%= link_to 'Create party', admin_new_party_path %></li>
+      </ul>
+  </div>
+</nav>
 
 <p><b>All parties</b></p>
 <table border="1" style="width:100%">
 <tr>
-<td>Photo</td>
-   <td>Party title</td>
+   <td>Photo</td>
+   <td>Party type</td>
    <td>venue</td>
-    <td>Status</td>
-<td>Name</td>
-   </tr>
-</table>
-
+   <td colspan="2">Status</td>
+</tr>
 <% @parties.each do |party| %>
 
-<table border="1" style="width:100%">
-<tr>
-<td><%= image_tag party.avatar.url %><td>
-    <td><b><%= party.title %></b></td>
-    <td><%= party.venue %></td>
-    
-    <td><button class="but">Accept</button>
-   
-</tr>
-</table>
-<br><br>
-
+   <tr id="party_<%= party.id %>">
+     <td><%= image_tag party.avatar.url %></td>
+     <td><b><%= party.party_type %></b></td>
+     <td><%= party.venue %></td>
+     <td colspan="2">
+     <input type="hidden" name="party_id" value=<%= party.id%>>
+     <button class="but">Accept</button></td>
+   </tr>
+ 
 <% end %>
+</table>
+
+
 <%= button_to "Sign Out", destroy_user_session_path(@user), method: :delete %>
+</body>
 </html>

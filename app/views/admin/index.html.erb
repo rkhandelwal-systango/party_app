@@ -1,5 +1,30 @@
-<h> I am Admin <h>
-<%= link_to "Users", admin_users_list_path%>
-<%= link_to "Reviewers", admin_reviewer_option_path%>
-<%= link_to "Parties",parties_path%><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Party Application</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><%= link_to 'Home', admin_index_path %></li>
+      <li><%= link_to 'Users', admin_users_list_path %></li>
+      <li><%= link_to "Reviewers", admin_reviewers_list_path%></li>
+      <li><%= link_to "Parties", admin_parties_path%></li>
+    </ul>
+  </div>
+</nav>
+<h1> Content will come here</h1>
 <%= button_to "Sign Out", destroy_user_session_path(@user), method: :delete %>
+
+</body>
+</html>

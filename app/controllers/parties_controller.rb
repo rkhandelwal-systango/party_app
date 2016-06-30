@@ -1,35 +1,33 @@
 class PartiesController < ApplicationController
-#has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-#validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-def new 
-@parties = Party.new
-end
+   
+  def new 
+    @parties = Party.new
+  end
 
-def show
-@parties = Party.all
-end
+  def my_parties
+    @parties = current_user.parties
+  end
 
-def create
+  def create
 #@user = User.where(email: params[:user][:email], password: params[:user][:password]).first
 #@parties = user.parties.build(party_params)
-@user = current_user
-   @parties = @user.parties.build(party_params)
-  #@parties = Party.new(party_params)
-   respond_to  do |f|
-     if @parties.save
-     f.html{ redirect_to index_path ,notice: "Your data has been entered"}
-     else
-     f.html{render action: "new"}
-     end
-   end
-end
+    @parties = current_user.parties.build(party_params)
+    #@parties = Party.new(party_params)
+    respond_to  do |f|
+      if @parties.save
+        f.html{ redirect_to index_path ,notice: "Your data has been entered"}
+      else
+        f.html{render action: "new"}
+      end
+    end
+  end
 
-def index
-@parties = Party.all
-end	
+  def index
+    @parties = Party.where(status: 'pending')
+  end 
 
-def party_params
-params.require(:parties).permit(:title,:title,:date,:no_of_person,:avatar,:venue )
-end
+  def party_params
+    params.require(:parties).permit(:title,:party_type,:party_date,:time,:no_of_person,:avatar,:venue,:status)
+  end
 
 end

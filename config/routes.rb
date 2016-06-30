@@ -7,17 +7,21 @@ Rails.application.routes.draw do
   devise_scope :user do
     root to: "users/sessions#new"
   end
-  resources :admin 
+  resources :admin, only: [:index, :destroy]
   resources :reviewers
   get 'admin/users_list', to: 'admin#users_list'
-  get 'admin/reviewer_option', to: 'admin#reviewer_option' 
+  get 'reviewer_option', to: 'admin#reviewer_option' 
   resources :parties
   get 'my_parties', to: 'parties#my_parties'
   get 'create_reviewer', to: 'admin#create_reviewer'
-  get 'reviewers_list', to: 'admin#reviewers_list'
+  get 'admin/reviewers_list', to: 'admin#reviewers_list'
   #put 'update_status', to: 'users/registrations#update_status'
   put 'accept_party', to: 'admin#accept_party'
+  put 'accepted_party', to: 'reviewers#accepted_party'
   get 'destroy_session', to: 'admin#destroy_session'
+  post 'admin/create_party', to: 'admin#create_party'
+  get 'admin/new_party', to: 'admin#new_party'
+  get 'admin/parties', to: 'admin#parties'
    #post 'login', to: 'users#login'
   #devise_for :users, controllers: {registrations: 'users/registrations'}
   # The priority is based upon order of creation: first created -> highest priority.

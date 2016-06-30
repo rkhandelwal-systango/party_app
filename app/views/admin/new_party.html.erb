@@ -1,0 +1,55 @@
+<h2>Create Party</h2>
+
+<%= form_for :parties,url: admin_create_party_path, html: { multipart: true } do |f| %>
+
+<div class="field">
+    <%= f.label :title,"Party Title" %><br />
+    <%= f.text_field :title, autofocus: true , :required => true,:onblur => "validateTitle()"%>
+    <span id="errfn"></span>
+</div>
+
+<div class="field">
+    <%= f.label :type_of_party,"Type"%><br />
+    <%= f.text_field :party_type, autofocus: true , :required => true,:onblur => "validateType()"%>
+    <span id="errfn1"></span>
+</div>
+
+<div class="field">
+    <%= f.label :date,"Date"%><br />
+    <%= f.text_field :party_date, autofocus: true , :required => true,:onblur => "validateDate()"%>
+    <span id="errfn2"></span>
+</div>
+
+<div class="field">
+    <%= f.label :time,"Time"%><br />
+    <%= f.text_field :time, autofocus: true , :required => true,:onblur => "validateTime()"%>
+    <span id="errfn3"></span>
+</div>
+
+<div class="field">
+    <%= f.label :no_of_person,"Number of Persons" %><br />
+    <%= f.text_field :no_of_person, autofocus: true , :required => true,:onblur => "validatePerson()"%><span id="errfn4"></span>
+</div>
+
+<div class="field">
+    <%= f.label :avatar,"Photo" %><br />
+    <%= f.file_field :avatar %>
+</div>
+
+<div class="field">
+    <%= f.label :venue,"Venue" %><br />
+    <%= f.text_field :venue, autofocus: true , :required => true,:onblur => "validateVenue()"%>
+    <span id="errfn5"></span>
+</div>
+<div class="field">
+   <%= f.hidden_field :status, :value => 'pending'%>
+</div>
+
+<div class="actions">
+    <%= f.submit "Create" %>
+</div>
+
+<% end %>
+
+
+
