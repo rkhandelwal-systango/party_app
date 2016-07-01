@@ -1,7 +1,7 @@
 class ReviewersController < ApplicationController
 
   def index
-    @parties = Party.where(status: 'pending')
+    @parties = Party.status_of_party('pending')
   end
 
   def new

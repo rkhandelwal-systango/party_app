@@ -33,7 +33,6 @@
    <td colspan="2">Status</td>
 </tr>
 <% @parties.each do |party| %>
-
    <tr id="party_<%= party.id %>">
      <td><%= image_tag party.avatar.url %></td>
      <td><b><%= party.party_type %></b></td>

@@ -24,7 +24,7 @@ if (document.getElementById("user_password_confirmation").value == "") {
     document.getElementById('errfn2').innerHTML="  ** Field Cannot be black";
         }else{
 var password = document.getElementById("user_password").value;
-var confirmPassword = document.getElementById("user_password_confirmation").value;
+var confirmPassword = document.getElementById("users_password_confirmation").value;
         if (password != confirmPassword) {
            document.getElementById('errfn2').style.color = "#ff0000";
            document.getElementById('errfn2').innerHTML=" ** confirm password and password field do not match";
@@ -33,7 +33,6 @@ document.getElementById('errfn2').innerHTML=" ";
 }
       
 }
-
 
 if (document.getElementById("user_city").value == "") {
           document.getElementById('errfn7').style.color = "#ff0000";
@@ -127,8 +126,8 @@ if (document.getElementById("user_password_confirmation").value == "") {
           document.getElementById('errfn2').style.color = "#ff0000";
     document.getElementById('errfn2').innerHTML="  ** Field Cannot be black";
         }else{
-var password = document.getElementById("users_password").value;
-var confirmPassword = document.getElementById("users_password_confirmation").value;
+var password = document.getElementById("user_password").value;
+var confirmPassword = document.getElementById("user_password_confirmation").value;
         if (password != confirmPassword) {
            document.getElementById('errfn2').style.color = "#ff0000";
            document.getElementById('errfn2').innerHTML=" ** confirm password and password field do not match";

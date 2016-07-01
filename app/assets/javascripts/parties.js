@@ -1,7 +1,6 @@
 $(document).ready(function () {
   $('.but').click(function(){
   var party_id = $(this).prev().val();
-
     $.ajax({
       type: 'PUT',
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},

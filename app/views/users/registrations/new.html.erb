@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.email_field :email, autofocus: true , :required => true ,:onblur => "validateEmail()"%>
+    <%= f.email_field :email, autofocus: true ,:onblur => "validateEmail()"%>
   </div><span id="errfn"></span><br>
 
   <div class="field">
@@ -13,44 +13,49 @@
     <% if @validatable %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
-    <%= f.password_field :password, autocomplete: "off" , :required => true ,:onblur => "validatePassword()"%>
+    <%= f.password_field :password, autocomplete: "off" ,:onblur => "validatePassword()"%>
   </div><span id="errfn1"></span><br>
 
   <div class="field">
     <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation, autocomplete: "off", :required => true ,:onblur => "validatePasswordConfirmation()" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off",:onblur => "validatePasswordConfirmation()" %>
   </div><span id="errfn2"></span><br>
 
   <div class="field">
     <%= f.label :name,"Name" %><br>
-    <%= f.text_field :name, autofocus: true, :required => true ,:onblur => "validateUsername()"%>
+    <%= f.text_field :name, autofocus: true,:onblur => "validateUsername()"%>
   </div><span id="errfn3"></span><br>
 
   <div class="field">
     <%= f.label :phn_no,"Phone Number" %><br>
-    <%= f.text_field :phone_no, autofocus: true , :required => true ,:onblur => "validatePhone_no()"%>
+    <%= f.text_field :phone_no, autofocus: true  ,:onblur => "validatePhone_no()"%>
    </div><span id="errfn4"></span><br>
 
   <div class="field">
     <%= f.label :address,"Address" %><br>
-    <%= f.text_field :address, autofocus: true, :required => true ,:onblur => "validateAddress()" %>
+    <%= f.text_field :address, autofocus: true ,:onblur => "validateAddress()" %>
   </div><span id="errfn5"></span><br>
 
   <div class="field">
     <%= f.label :state,"State" %><br>
-    <%= f.text_field :state, autofocus: true , :required => true ,:onblur => "validateState()"%>
+    <%= f.text_field :state, autofocus: true ,:onblur => "validateState()"%>
   </div><span id="errfn6"></span><br><br>
 
   <div class="field">
     <%= f.label :city,"City" %><br>
-    <%= f.text_field :city, autofocus: true , :required => true ,:onblur => "validateCity()"%>
+    <%= f.text_field :city, autofocus: true ,:onblur => "validateCity()"%>
   </div><span id="errfn7"></span><br>
 
   <div class="field">
     <%= f.label :pincode,"Pincode" %><br>
-    <%= f.text_field :pincode, autofocus: true , :required => true ,:onblur => "validatePincode()"%>
+    <%= f.text_field :pincode, autofocus: true , :required => true,:onblur => "validatePincode()"%>
   </div><span id="errfn8"></span><br>
+   
+  <div class="field">
+   <%= f.hidden_field :role, :value => 'user'%>
+</div>
 
+  
   <div class="actions">
     <%= f.submit "Sign up", id: "form_submission",:onclick => "validateForm()"  %>
   </div>

@@ -9,6 +9,15 @@ class User < ActiveRecord::Base
 
   has_many :parties
 
-  attr_accessor :email, :password, :password_confirmation, :remember_me
-
+  #attr_accessor :email, :password, :password_confirmation, :remember_me
+ 
+  validates :name, :length => { :minimum => 2 }
+  validates :city, :presence => true
+  validates :state, :presence => true
+  validates :address, :presence => true
+  validates :pincode,:numericality => true
+ 
+ scope :role_of_user,-> (role){where(role: role)} 
+ 
 end
+

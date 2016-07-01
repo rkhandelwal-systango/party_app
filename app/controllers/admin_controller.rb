@@ -6,7 +6,7 @@ class AdminController < ApplicationController
   end
   
   def parties
-    @parties = Party.where(status: 'pending')
+    @parties = Party.status_of_party('pending')
   end
   
   def new_party
@@ -26,11 +26,11 @@ class AdminController < ApplicationController
   end
 
   def users_list
-    @users = User.where(role: 'user')
+    @users = User.role_of_user('user')
   end
 
   def reviewers_list
-    @users = User.where(role: 'reviewer')
+    @users = User.role_of_user('reviewer')
   end
 
   def destroy
